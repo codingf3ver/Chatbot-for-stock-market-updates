@@ -1,0 +1,33 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_ask
+  - intent: stock_news
+  - action: action_nse_stock_price
+  - action: utter_did_that_help
+  - intent: affirm
+  - intent: top_gainers_stocks
+  - action: action_nse_top_gainers
+  - intent: top_losers_stocks
+  - action: action_nse_top_losers
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_mood_bad
+  - action: utter_cheer_up
+  
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+  - intent: deny
+  - action: utter_cheer_up
